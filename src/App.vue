@@ -1,23 +1,36 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <MyHeader v-bind:style="{height: headerheight + 'px'}"></MyHeader>
+    <!--<img alt="Vue logo" src="./assets/logo.png" />-->
+    <router-view v-bind:style="{'margin-top': headerheight+'px'}"></router-view>
   </div>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld.vue'
+import MyHeader from './components/Header.vue'
+
 export default {
-  name: 'App'
+  name: 'app',
+  components: {
+    HelloWorld,
+    MyHeader
+  },
+  data: function () {
+    return {
+      headerheight: 70
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 20px;
 }
 </style>
