@@ -1,18 +1,26 @@
 <template>
   <div class="header">
-    <span class="title range">title</span>
-    <span class="Am range">About me</span>
-    <span class="Ac range">Activity</span>
-    <span class="Pd range">Product</span>
-    <span class="Ct range">Contact</span>
+    <span class="title range" v-on:click="backTitle">title</span>
+    <span class="Am range" v-on:click="goPage('/AboutMe')">About me</span>
+    <span class="Ac range" v-on:click="goPage('/Activity')">Activity</span>
+    <span class="Pd range" v-on:click="goPage('/Product')">Product</span>
+    <span class="Ct range" v-on:click="goPage('/Contact')">Contact</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'header',
+  name: 'myHeader',
   data: function () {
     return {}
+  },
+  methods: {
+    backTitle: function () {
+      if (this.$route.path !== '/') this.$router.push('/')
+    },
+    goPage: function (path) {
+      if (this.$route.path !== path) this.$router.push(path)
+    }
   }
 }
 </script>
@@ -24,13 +32,18 @@ export default {
   left: 0px;
   width: 100%;
   background: rgba(255, 0, 0, 0.5);
-}
-
-.title {
   display: flex;
 }
 
 .range {
-  background: rgba(0, 255, 0, 0.3);
+  height: 70px;/*上位コンポーネントからデータを渡すべき*/
+  line-height: 70px;
+  /*background: rgba(0, 255, 0, 0.3);*/
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.Am {
+  margin-left: auto;
 }
 </style>
