@@ -1,0 +1,49 @@
+<template>
+  <div class="header">
+    <span class="title range" v-on:click="backTitle">title</span>
+    <span class="Am range" v-on:click="goPage('/AboutMe')">About me</span>
+    <span class="Ac range" v-on:click="goPage('/Activity')">Activity</span>
+    <span class="Pd range" v-on:click="goPage('/Product')">Product</span>
+    <span class="Ct range" v-on:click="goPage('/Contact')">Contact</span>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'myHeader',
+  data: function () {
+    return {}
+  },
+  methods: {
+    backTitle: function () {
+      if (this.$route.path !== '/') this.$router.push('/')
+    },
+    goPage: function (path) {
+      if (this.$route.path !== path) this.$router.push(path)
+    }
+  }
+}
+</script>
+
+<style scoped>
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.5);
+  display: flex;
+}
+
+.range {
+  height: 70px;/*上位コンポーネントからデータを渡すべき*/
+  line-height: 70px;
+  /*background: rgba(0, 255, 0, 0.3);*/
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.Am {
+  margin-left: auto;
+}
+</style>
