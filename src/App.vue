@@ -3,7 +3,7 @@
     <MyHeader v-bind:style="{height: headerheight + 'px'}"></MyHeader>
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
     <Animation></Animation>
-    <router-view v-bind:style="{'margin-top': headerheight+'px'}"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -34,6 +34,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-top: 20px;
+  padding-top: 70px;
+  margin-top: 20px;
 }
 </style>
