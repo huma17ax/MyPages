@@ -2,19 +2,22 @@
   <div id="app">
     <MyHeader v-bind:style="{height: headerheight + 'px'}"></MyHeader>
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
+    <Animation></Animation>
     <router-view v-bind:style="{'margin-top': headerheight+'px'}"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import MyHeader from './components/Header.vue'
+import Animation from './components/PageSwitchAnimation'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    MyHeader
+    // HelloWorld,
+    MyHeader,
+    Animation
   },
   data: function () {
     return {
