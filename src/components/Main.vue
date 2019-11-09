@@ -2,21 +2,30 @@
     <div>
         <h1>Welcome to MyPage</h1>
         <div class="button-container">
-            <span class="button-item"
-            v-on:click="goPage('/AboutMe')">About me</span>
-            <span class="button-item"
-            v-on:click="goPage('/Activity')">Activity</span>
-            <span class="button-item"
-            v-on:click="goPage('/Product')">Product</span>
-            <span class="button-item"
-            v-on:click="goPage('/Contact')">Contact</span>
+            <myButton
+            class="button-item"
+            v-on:click.native="goPage('/AboutMe')">About me</myButton>
+            <myButton
+            class="button-item"
+            v-on:click.native="goPage('/Activity')">Activity</myButton>
+            <myButton
+            class="button-item"
+            v-on:click.native="goPage('/Product')">Product</myButton>
+            <myButton
+            class="button-item"
+            v-on:click.native="goPage('/Contact')">Contact</myButton>
         </div>
     </div>
 </template>
 
 <script>
+import myButton from '@/components/Button'
+
 export default {
   name: 'toppage',
+  components: {
+    myButton
+  },
   methods: {
     goPage: function (path) {
       if (this.$route.path !== path) this.$router.push(path)
@@ -39,11 +48,6 @@ h1 {
 }
 
 .button-item {
-    width: 200px;
-    height: 50px;
-    margin: 25px;
-    background: rgba(255, 0, 0, 0.5);
-    border-radius: 10px;
-    cursor: pointer;
+    margin: 20px;
 }
 </style>
