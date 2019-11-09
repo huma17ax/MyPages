@@ -41,6 +41,7 @@ export default {
   /*background: rgba(0, 255, 0, 0.3);*/
   margin-right: 5px;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .Am {
