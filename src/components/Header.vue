@@ -33,6 +33,7 @@ export default {
   width: 100%;
   background: rgba(255, 0, 0, 0.5);
   display: flex;
+  z-index: 100;
 }
 
 .range {
