@@ -44,6 +44,7 @@ export default {
     border-radius: 10px;
     cursor: pointer;
     line-height: 50px;
+    text-align: center;
 
     --base-color: white;
     --base2-color: white;
