@@ -43,6 +43,7 @@ export default {
 
 <style scoped>
   .leftout {
+    z-index: 1000;
     position: fixed;
     top: 70px;/* 上位コンポーネントから*/
     left: 0px;
