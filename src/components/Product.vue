@@ -1,44 +1,56 @@
 <template>
     <div class = "whole">
         <div class= "list-container">
-            <div
+            <myButton
             class="list-item"
             v-for="(item,index) in listItems"
             v-bind:key="item.id"
-            v-on:click="changeDetail(index)">{{item.title}}</div>
+            v-on:click.native="changeDetail(index)">{{item.title}}</myButton>
         </div>
         <div class="explanation">
-            <h3 >{{nowTitle}}</h3>
+            <h3>{{nowTitle}}</h3>
             <div class = "images">
               <img alt="screen shot"
               class = "main-image"
               v-bind:class = "{'main-image-close': isClosing}"
-              v-bind:src="nowImageSource">
+              v-bind:src="nowImageSource"
+              v-on:load="loaded">
               <!--
               <img alt="sub image"
               class = "sub-image"
               v-bind:class = "{'sub-image-open' : changing}"
               v-bind:src="nextImageSource">
               -->
-              </div>
-            <p>explanation</p>
+            </div>
+            <div
+            class="exp-text"
+            v-bind:class = "{'exp-text-close': isClosing}"
+            v-html="productData[selecting].explanation">
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import myButton from '@/components/Button'
+import productData from '@/assets/exp.json'
+
 export default {
   name: 'product',
+  components: {
+    myButton
+  },
   data: function () {
     return {
       listItems: [
-        {title: 'DragonSlayer', source: require('@/assets/logo.png')},
-        {title: 'FortuneTelling', source: require('@/assets/dragon1.png')},
-        {title: 'TETROCK', source: require('@/assets/dragon2.png')}
+        {title: 'DragonSlayer', imgSrc: require('@/assets/logocopy.png')},
+        {title: 'FortuneTelling', imgSrc: require('@/assets/dragon1.png')},
+        {title: 'TETROCK', imgSrc: require('@/assets/dragon2.png')}
       ],
       selecting: 0,
       isOpening: false,
-      isClosing: false
+      isClosing: false,
+      productData: productData
     }
   },
   methods: {
@@ -50,10 +62,12 @@ export default {
       setTimeout(() => {
         this.selecting = title
       }, 500)
+    },
+    loaded: function () {
       // 画面戻し
       setTimeout(() => {
         this.isClosing = false
-      }, 550)
+      }, 100)
     }
   },
   computed: {
@@ -61,10 +75,10 @@ export default {
       return this.listItems[this.selecting].title
     },
     nowImageSource: function () {
-      return this.listItems[this.selecting].source
+      return this.listItems[this.selecting].imgSrc
     },
     nextImageSource: function () {
-      return this.listItems[this.nextSelect].source
+      return ''
     }
   }
 }
@@ -80,12 +94,12 @@ export default {
 
 .list-container {
     width: 250px;
+    padding-top: 50px;
 }
 
 .list-item{
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .explanation {
@@ -97,25 +111,24 @@ export default {
 
 .images {
     display: flex;
-    position: relative;
     z-index: -1;
 }
 
 .main-image {
-    /*position: absolute;*/
     margin: 0 auto;
     top: 0px;
     left: 0px;
     max-width: 500px;
-    height: 281px;
+    max-height: 300px;
     /*transform: rotateY(0deg);*/
     transition: 0.5s;
 }
 
 .main-image-close {
     /*transform: rotateY(90deg);*/
-    max-width: 0px;
+    max-width: 50px;
     transition: 0.5s;
+    opacity: 0;
 }
 
 .main-image-open {
@@ -141,4 +154,13 @@ export default {
     transition: 1s
 }
 */
+.exp-text {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.exp-text-close {
+    opacity: 0;
+    transition: 0.5s;
+}
 </style>

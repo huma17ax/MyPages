@@ -14,6 +14,7 @@ export default {
   data: function () {
     return {
       baseColor: '#FF9999',
+      base2Color: '#FF7070',
       gradColor: '#FF4040'
     }
   },
@@ -27,6 +28,7 @@ export default {
     styles () {
       return {
         '--base-color': this.baseColor,
+        '--base2-color': this.base2Color,
         '--grad-color': this.gradColor
       }
     }
@@ -36,6 +38,7 @@ export default {
 
 <style scoped>
 .button-item {
+    z-index: -1;
     width: 200px;
     height: 50px;
     border-radius: 10px;
@@ -43,13 +46,14 @@ export default {
     line-height: 50px;
 
     --base-color: white;
+    --base2-color: white;
     --grad-color: white;
 
     background-color: var(--base-color);
 }
 
 .button-item:hover {
-    background: linear-gradient(to right,var(--base-color),var(--base-color) 30%, var(--grad-color) 50%, var(--base-color) 70%, var(--base-color));
+    background: linear-gradient(to right,var(--base2-color),var(--base2-color) 30%, var(--grad-color) 50%, var(--base2-color) 70%, var(--base2-color));
     background-size: 500% 100%;
     animation-name: animation-hover;
     animation-duration: 1s;
