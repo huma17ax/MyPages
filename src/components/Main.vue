@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Welcome to MyPage</h1>
+        <h1 class="title">Welcome to MyPage</h1>
         <div class="button-container">
             <myButton
             class="button-item"
@@ -38,6 +38,10 @@ export default {
 h1 {
     padding-top: 120px;
     font-size: 60px;
+}
+
+.title {
+    text-align: center;
 }
 
 .button-container {

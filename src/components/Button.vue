@@ -38,12 +38,12 @@ export default {
 
 <style scoped>
 .button-item {
-    z-index: -1;
     width: 200px;
     height: 50px;
     border-radius: 10px;
     cursor: pointer;
     line-height: 50px;
+    text-align: center;
 
     --base-color: white;
     --base2-color: white;
@@ -53,6 +53,7 @@ export default {
 }
 
 .button-item:hover {
+    transform: scale(1.02);
     background: linear-gradient(to right,var(--base2-color),var(--base2-color) 30%, var(--grad-color) 50%, var(--base2-color) 70%, var(--base2-color));
     background-size: 500% 100%;
     animation-name: animation-hover;
