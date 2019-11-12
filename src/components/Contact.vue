@@ -15,9 +15,9 @@ import contactData from '@/assets/contact.json'
 export default {
   name: 'contact',
   data: function () {
-      return {
-        contactData: contactData
-      }
+    return {
+      contactData: contactData
+    }
   }
 }
 </script>
