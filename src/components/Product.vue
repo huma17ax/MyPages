@@ -8,7 +8,12 @@
             v-on:click.native="changeDetail(index)">{{item.title}}</myButton>
         </div>
         <div class="explanation">
-            <h3>{{nowTitle}}</h3>
+            <div class="prodTitle">
+                <div class="prodTitleTxt"
+                v-bind:class="{'prodTitleTxt-close': isClosing}">
+                    {{nowTitle}}
+                </div>
+            </div>
             <div class = "images">
               <img alt="screen shot"
               class = "main-image"
@@ -33,7 +38,7 @@
 
 <script>
 import myButton from '@/components/Button'
-import productData from '@/assets/exp.json'
+import productData from '@/assets/product.json'
 
 export default {
   name: 'product',
@@ -43,9 +48,9 @@ export default {
   data: function () {
     return {
       listItems: [
-        {title: 'DragonSlayer', imgSrc: require('@/assets/logocopy.png')},
-        {title: 'FortuneTelling', imgSrc: require('@/assets/dragon1.png')},
-        {title: 'TETROCK', imgSrc: require('@/assets/dragon2.png')}
+        {title: 'DragonSlayer', imgSrc: require('@/assets/dragonslayer.png')},
+        {title: 'FortuneTelling', imgSrc: require('@/assets/fortunetelling.png')},
+        {title: 'TETROCK', imgSrc: require('@/assets/tetrock.png')}
       ],
       selecting: 0,
       isOpening: false,
@@ -90,11 +95,29 @@ export default {
     width: 750px;
     margin: auto;
     position: relative;
+    height: 100%;
 }
 
 .list-container {
-    width: 250px;
-    padding-top: 50px;
+    width: 230px;
+    max-height: calc(100% - 50px);
+    margin-top: 50px;
+    padding-left: 5px;
+    overflow-y: scroll;
+}
+
+/*webkitのみ*/
+.list-container::-webkit-scrollbar {
+    width: 10px;
+}
+.list-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(255, 0, 0, .2);
+}
+.list-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 150, 150, .5);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2);
 }
 
 .list-item{
@@ -107,6 +130,27 @@ export default {
     top: 0px;
     left: 250px;
     width: 500px;
+}
+
+.prodTitle {
+    background-color: #FFCCCC;
+    width: 100%;
+    height: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-indent: 15px;
+}
+
+.prodTitleTxt {
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.prodTitleTxt-close {
+    padding-left: 300px;
+    opacity: 0;
 }
 
 .images {
@@ -126,7 +170,7 @@ export default {
 
 .main-image-close {
     /*transform: rotateY(90deg);*/
-    max-width: 50px;
+    max-height: 50px;
     transition: 0.5s;
     opacity: 0;
 }

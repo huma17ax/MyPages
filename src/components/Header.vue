@@ -17,8 +17,6 @@
         Contact
         <span class="exp">ご連絡はこちら</span>
     </span>
-
-    
   </div>
 </template>
 
@@ -79,8 +77,8 @@ export default {
     opacity: 0;
     position: absolute;
     top: 55px;
-	left : 50%;
-	transform : translate(-50%, 0);
+    left : 50%;
+    transform : translate(-50%, 0);
     width: 170px;
     height: 20px;
     line-height: 20px;
@@ -88,5 +86,6 @@ export default {
     /*white-space: nowrap;*/
     transition: 0.3s;
     background-color: #FFCCCC;
+    box-shadow: 0 0 3px 3px rgba(255,0,0,0.3);
 }
 </style>
