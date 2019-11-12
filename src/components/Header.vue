@@ -31,7 +31,7 @@ export default {
   top: 0px;
   left: 0px;
   width: 100%;
-  background: rgba(255, 0, 0, 0.5);
+  background: #FF9090;
   display: flex;
   z-index: 100;
 }
@@ -40,8 +40,8 @@ export default {
   height: 70px;/*上位コンポーネントからデータを渡すべき*/
   line-height: 70px;
   /*background: rgba(0, 255, 0, 0.3);*/
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: calc(100% / 50);
+  margin-left: calc(100% / 50);
   cursor: pointer;
 }
 

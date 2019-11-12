@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 h1 {
-    padding-top: 120px;
+    padding-top: calc(50vh - 300px);
     font-size: 60px;
 }
 

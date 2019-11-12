@@ -1,14 +1,44 @@
 <template>
     <div class="whole">
-        <h2>経歴</h2>
-        <table>
-            <tr v-for="data in careerData" v-bind:key="data.id">
-                <th>{{data.period}}</th>
-                <td v-html="data.content"></td>
-            </tr>
-        </table>
-        <h2>現在</h2>
-        <h2>趣味・興味</h2>
+        <div class="content">
+            <h2>経歴</h2>
+            <table>
+                <tr v-for="data in careerData" v-bind:key="data.id">
+                    <th>{{data.period}}</th>
+                    <td v-html="data.content"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <h2>現在</h2>
+            <div class="detail">
+                千葉大学 工学部 総合工学科 情報工学コース 3年 <br>
+                千葉大学 電子計算機研究会 <br>
+                千葉大学 ノートテイク会
+            </div>
+        </div>
+        <div class="content">
+            <h2>趣味・興味</h2>
+            <div class="detail">
+                <h4>xR</h4>
+                <div class="detail">
+                    現実世界ではありえない表現をしたり，現実を拡張できるxR．<br>
+                    現在VRを用いたゲームを制作中．
+                </div>
+            </div>
+            <div class="detail">
+                <h4>Vtuber/Vsinger</h4>
+                <div class="detail">
+
+                </div>
+            </div>
+            <div class="detail">
+                <h4>EDM</h4>
+                <div class="detail">
+                    ジャンルは"Future Bass"など．
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -27,8 +57,26 @@ export default {
 
 <style scoped>
 .whole {
-    width: 750px;
+    max-width: 750px;
+    height: 100%;
     margin: auto;
+    overflow-y: auto;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+h2 {
+    z-index: 2;
+    position: sticky;
+    top:0px;
+    background: linear-gradient(to right, #FFFFFF,rgba(255, 255, 255, 0));
+    margin: 0;
+}
+
+h4 {
+    margin-bottom: 0;
 }
 
 table {
@@ -68,6 +116,10 @@ td {
     background-color: #BBBBBB;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+.detail {
     padding-left: 20px;
 }
 </style>
