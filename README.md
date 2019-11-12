@@ -1,6 +1,14 @@
-# mypages
+# MyPages
 
-> A Vue.js project
+> Created using Vue.js
+
+## srcディレクトリ
+
+> 制作した.vue/.html/.json/画像など
+
+## docsディレクトリ
+
+> ビルドで生成される公開用
 
 ## Build Setup
 
